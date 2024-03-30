@@ -13,11 +13,11 @@ public interface InventoryDao {
 
 	public List<ProductInventoryDto> getQuantityInStock() throws SQLException;
 
-	public void addToInventory(int id1, int quantity1) ;
+	public void addToInventory(int id1, int quantity1) throws SQLException;
 
-	public void removeFromInventory(int id2, int quantity2);
+	public void removeFromInventory(int id2, int quantity2) throws SQLException;
 	
-	public void updateStockQuantity(int id3, int quantity3);
+	public void updateStockQuantity(int id3, int quantity3) throws SQLException;
 	
 	public List<Inventory> isProductAvailable(int quantity4) throws SQLException ;
 	

@@ -18,13 +18,13 @@ public class CustomerService {
 	}
 
 	
-	public List<Customer> getCustomerDetails() {
+	public List<Customer> getCustomerDetails() throws SQLException {
 		List<Customer>list1=customerDaoImpl.getCustomerDetails();
 		return list1;
 	}
 
 	
-	public void updateCustomerInfo(int id, String cemail) {
+	public void updateCustomerInfo(int id, String cemail) throws SQLException {
 		customerDaoImpl.updateCustomerInfo(id, cemail);
 	}
 	

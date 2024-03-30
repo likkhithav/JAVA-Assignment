@@ -26,17 +26,17 @@ public class InventoryService {
 	}
 	
 
-	public void addToInventory(int id1, int quantity1) {
+	public void addToInventory(int id1, int quantity1) throws SQLException {
 		inventoryDaoImpl.addToInventory(id1, quantity1);
 	}
 
 	
-	public void removeFromInventory(int id2, int quantity2) {
+	public void removeFromInventory(int id2, int quantity2) throws SQLException {
 		inventoryDaoImpl.removeFromInventory(id2, quantity2);
 	}
 
 	
-	public void updateStockQuantity(int id3, int quantity3) {
+	public void updateStockQuantity(int id3, int quantity3) throws SQLException {
 		inventoryDaoImpl.updateStockQuantity(id3, quantity3);
 	}
 

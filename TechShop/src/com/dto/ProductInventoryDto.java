@@ -45,7 +45,7 @@ public class ProductInventoryDto {
 	@Override
 	public String toString() {
 		return "ProductInventoryDto [productId=" + productId + ", name=" + name + ", quantityInStock=" + quantityInStock
-				+ "]\n";
+				+ "]";
 	}
 	
 }

@@ -11,13 +11,13 @@ public class ProductService {
 
 	ProductDaoImpl productDaoImpl=new ProductDaoImpl();
 	
-	public List<Product> getProductDetails() {
+	public List<Product> getProductDetails() throws SQLException {
 		List<Product>list=productDaoImpl.getProductDetails();
 		return list;
 	}
 
 	
-	public void updateProductInfo(int pid, Double pprice) {
+	public void updateProductInfo(int pid, Double pprice) throws SQLException {
 		productDaoImpl.updateProductInfo(pid, pprice);
 	}
 

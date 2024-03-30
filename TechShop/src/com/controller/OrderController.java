@@ -10,7 +10,7 @@ import com.service.OrderService;
 
 public class OrderController {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		
 		OrderService  orderService=new OrderService();
 		Scanner sc = new Scanner(System.in);
@@ -71,16 +71,23 @@ public class OrderController {
 					System.out.println("Enter the status to be update 1.Processing  2.Shipped");
 					int choice=sc.nextInt();
 					
-					String ostatus = null;
-					if(choice == 1)
-			        	ostatus= "processing";
-					else if (choice == 2)
-						ostatus = "shipped";
-					else
-						System.out.println("Invalid choice");
-					
-					orderService.updateOrderStatus(id, ostatus);
-					System.out.println("Customer Info Updated!!!");
+					try
+					{
+						String ostatus = null;
+						if(choice == 1)
+				        	ostatus= "processing";
+						else if (choice == 2)
+							ostatus = "shipped";
+						else
+							System.out.println("Invalid choice");
+						
+						orderService.updateOrderStatus(id, ostatus);
+						System.out.println("Customer Info Updated!!!");
+					}
+					catch(SQLException e)
+					{
+						System.out.println(e.getMessage());
+					}
 					break;
 					
 					
@@ -88,10 +95,17 @@ public class OrderController {
 					System.out.println("***Cancel order***");
 					System.out.println("Enter the order ID to be canceled: ");
 					int oid1=sc.nextInt();
-					orderService.cancelOrder(oid1);
-					System.out.println("###Deleted###");
-					break;
 					
+					try
+					{
+						orderService.cancelOrder(oid1);
+						System.out.println("###Deleted###");
+					}
+					catch(SQLException e)
+					{
+						System.out.println(e.getMessage());
+					}	
+					break;	
 					
 				default:
 					System.out.println("Invalid Input!!!");

@@ -41,56 +41,46 @@ public class CustomerDaoImpl {
 	}
 
 	
-	public List<Customer> getCustomerDetails() 
+	public List<Customer> getCustomerDetails() throws SQLException 
 	{
 		
 		Connection conn = DBUtil.getDBConn();
 		List<Customer>list=new ArrayList<>();
 		
 		String sql="select * from customer";
-		try {
-				PreparedStatement pstmt=conn.prepareStatement(sql);
-				ResultSet rst=pstmt.executeQuery();
-				while(rst.next())
-				{
-					int id=rst.getInt("id");
-					String firstName=rst.getString("first_name");
-					String lastName=rst.getString("last_name");
-					String email=rst.getString("email");
-					String address=rst.getString("address");
-					
-					Customer c=new Customer();
-					c.setId(id);
-					c.setFirstName(firstName);
-					c.setLastName(lastName);
-					c.setEmail(email);
-					c.setAddress(address);
-					list.add(c);
-				}
-			}
-			catch(SQLException e)
-			{
-				e.printStackTrace();
-			}
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		ResultSet rst=pstmt.executeQuery();
+		while(rst.next())
+		{
+			int id=rst.getInt("id");
+			String firstName=rst.getString("first_name");
+			String lastName=rst.getString("last_name");
+			String email=rst.getString("email");
+			String address=rst.getString("address");
+			
+			Customer c=new Customer();
+			c.setId(id);
+			c.setFirstName(firstName);
+			c.setLastName(lastName);
+			c.setEmail(email);
+			c.setAddress(address);
+			list.add(c);
+		}
 			DBUtil.dbClose();
 			return list;	
 	}
 
 	
-	public void updateCustomerInfo(int id, String cemail) 
+	public void updateCustomerInfo(int id, String cemail) throws SQLException 
 	{
 		Connection conn = DBUtil.getDBConn();
 		String sql="update customer SET email=? where id=?";
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, cemail);
-			pstmt.setInt(2, id);	
-			pstmt.executeUpdate();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
+		
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, cemail);
+		pstmt.setInt(2, id);	
+		pstmt.executeUpdate();
+		
 		DBUtil.dbClose();
 	}
 

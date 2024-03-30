@@ -9,10 +9,10 @@ public interface OrderDao {
 	
 	public void calculateTotalAmount() throws SQLException;
 
-	public List<Orders> getOrderDetails();
+	public List<Orders> getOrderDetails() throws SQLException;
 
-	public void updateOrderStatus(int id, String ostatus);
+	public void updateOrderStatus(int id, String ostatus) throws SQLException;
 
-	public void cancelOrder(int oid1);
+	public void cancelOrder(int oid1) throws SQLException;
 	
 }

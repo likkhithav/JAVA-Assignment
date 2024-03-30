@@ -57,79 +57,59 @@ public class InventoryDaoImpl {
 				+ "from product p JOIN inventory i "
 				+ "ON p.id=i.product_id "
 				+ "where i.quantity_in_stock>0 ";
-		try 
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		ResultSet rst=pstmt.executeQuery();
+		while(rst.next())
 		{
-			PreparedStatement pstmt=conn.prepareStatement(sql);
-			ResultSet rst=pstmt.executeQuery();
-			while(rst.next())
-			{
-				int id=rst.getInt("id");
-				String name=rst.getString("name");
-				int stock=rst.getInt("quantity_in_stock");
-				ProductInventoryDto i = new ProductInventoryDto(id,name,stock);
-				list.add(i);
-			}
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+			int id=rst.getInt("id");
+			String name=rst.getString("name");
+			int stock=rst.getInt("quantity_in_stock");
+			ProductInventoryDto i = new ProductInventoryDto(id,name,stock);
+			list.add(i);
 		}
 		DBUtil.dbClose();
 		return list;
 	}
 
 	
-	public void addToInventory(int id1, int quantity1) {
+	public void addToInventory(int id1, int quantity1) throws SQLException {
 		
 		Connection conn = DBUtil.getDBConn();
 		String sql="update inventory SET quantity_in_stock=quantity_in_stock+? where id=?";
-		try 
-		{
-			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, quantity1);
-			pstmt.setInt(2, id1);
-			pstmt.executeUpdate();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
+		
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		pstmt.setInt(1, quantity1);
+		pstmt.setInt(2, id1);
+		pstmt.executeUpdate();
+		
 		DBUtil.dbClose();
 	}
 
 	
-	public void removeFromInventory(int id2, int quantity2) {
+	public void removeFromInventory(int id2, int quantity2) throws SQLException {
 		
 		Connection conn = DBUtil.getDBConn();
 		String sql="update inventory SET quantity_in_stock=quantity_in_stock-? where id=?";
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, quantity2);
-			pstmt.setInt(2, id2);
-			pstmt.executeUpdate();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
+
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		pstmt.setInt(1, quantity2);
+		pstmt.setInt(2, id2);
+		pstmt.executeUpdate();
+		
 		DBUtil.dbClose();
 	}
 	
 
-	public void updateStockQuantity(int id3, int quantity3) {
+	public void updateStockQuantity(int id3, int quantity3) throws SQLException {
 		
 		Connection conn = DBUtil.getDBConn();
 		String sql="update inventory SET quantity_in_stock=? where id=?";
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, quantity3);
-			pstmt.setInt(2, id3);
-			pstmt.executeUpdate();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
+
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		pstmt.setInt(1, quantity3);
+		pstmt.setInt(2, id3);
+		pstmt.executeUpdate();
+		
 		DBUtil.dbClose();
 	}
 

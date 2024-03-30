@@ -15,18 +15,18 @@ public class OrderService {
 	}
 
 	
-	public List<Orders> getOrderDetails() {
+	public List<Orders> getOrderDetails() throws SQLException {
 		List<Orders>list=orderDaoImpl.getOrderDetails();
 		return list;
 	}
 
 	
-	public void updateOrderStatus(int id, String ostatus) {
+	public void updateOrderStatus(int id, String ostatus) throws SQLException {
 		orderDaoImpl.updateOrderStatus(id, ostatus);
 	}
 
 	
-	public void cancelOrder(int oid1) {
+	public void cancelOrder(int oid1) throws SQLException {
 		orderDaoImpl.cancelOrder(oid1);
 	}
 }

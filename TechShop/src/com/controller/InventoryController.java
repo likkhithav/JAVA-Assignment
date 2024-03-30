@@ -80,8 +80,15 @@ public class InventoryController {
 					sc.nextLine();
 					int quantity1=sc.nextInt();
 					
-					inventoryService.addToInventory(id1, quantity1);
-					System.out.println("Product quantity added!!!");
+					try
+					{
+						inventoryService.addToInventory(id1, quantity1);
+						System.out.println("Product quantity added!!!");
+					}
+					catch(SQLException e)
+					{
+						System.out.println(e.getMessage());
+					}
 					break;
 					
 					
@@ -94,8 +101,15 @@ public class InventoryController {
 					sc.nextLine();
 					int quantity2=sc.nextInt();
 					
-					inventoryService.removeFromInventory(id2, quantity2);
-					System.out.println("Product quantity removed!!!");
+					try
+					{
+						inventoryService.removeFromInventory(id2, quantity2);
+						System.out.println("Product quantity removed!!!");
+					}
+					catch(SQLException e)
+					{
+						System.out.println(e.getMessage());
+					}
 					break;	
 				
 					
@@ -108,8 +122,15 @@ public class InventoryController {
 					sc.nextLine();
 					int quantity3=sc.nextInt();
 					
-					inventoryService.updateStockQuantity(id3, quantity3);
-					System.out.println("Product Quantity Updated!!!");
+					try
+					{
+						inventoryService.updateStockQuantity(id3, quantity3);
+						System.out.println("Product Quantity Updated!!!");
+					}
+					catch(SQLException e)
+					{
+						System.out.println(e.getMessage());
+					}
 					break;
 				
 					
@@ -119,11 +140,18 @@ public class InventoryController {
 					sc.nextLine();
 					int quantity4=sc.nextInt();
 					
-					List<Inventory>list1=inventoryService.isProductAvailable( quantity4);
-					System.out.println("Product Quantity Available!!!");
-					for(Inventory m:list1)
+					try
 					{
-						System.out.println(m);
+						List<Inventory>list1=inventoryService.isProductAvailable( quantity4);
+						System.out.println("Product Quantity Available!!!");
+						for(Inventory m:list1)
+						{
+							System.out.println(m);
+						}
+					}
+					catch(SQLException e)
+					{
+						System.out.println(e.getMessage());
 					}
 					break;
 				
@@ -196,11 +224,19 @@ public class InventoryController {
 				
 				case 10:
 					System.out.println("***List All details***");
-					List<Inventory>list5=inventoryService.listAll();
-					for(Inventory m:list5)
+					
+					try
 					{
-						System.out.println("[id=" + m.getId() + ", quantityInStock=" + m.getQuantityInStock() + 
-								", lastStockUpdate=" + m.getLastStockUpdate() + ", productId=" + m.getProductId()+ "]");
+						List<Inventory>list5=inventoryService.listAll();
+						for(Inventory m:list5)
+						{
+							System.out.println("[id=" + m.getId() + ", quantityInStock=" + m.getQuantityInStock() + 
+									", lastStockUpdate=" + m.getLastStockUpdate() + ", productId=" + m.getProductId()+ "]");
+						}
+					}
+					catch(SQLException e)
+					{
+						System.out.println(e.getMessage());
 					}
 					break;
 				

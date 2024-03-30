@@ -8,9 +8,9 @@ import com.model.Product;
 
 public interface ProductDao {
 	
-	public List<Product> getProductDetails();
+	public List<Product> getProductDetails() throws SQLException;
 
-	public void updateProductInfo(int pid, Double pprice);
+	public void updateProductInfo(int pid, Double pprice) throws SQLException;
 
 	public List<ProductInventoryDto> isProductInStock(int id1) throws SQLException;
 	

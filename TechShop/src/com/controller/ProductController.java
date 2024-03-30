@@ -11,7 +11,7 @@ import com.service.ProductService;
 
 public class ProductController {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		
 		ProductService  productService=new ProductService();
 		Scanner sc = new Scanner(System.in);
@@ -37,10 +37,19 @@ public class ProductController {
 			
 				case 1:
 					System.out.println("***Get Product details***");
-					List<Product>list=productService.getProductDetails();
-					for(Product m:list)
+					
+					
+					try
 					{
-						System.out.println("[id=" + m.getId() + ", name=" + m.getName() + ", price=" + m.getPrice()+ "]");
+						List<Product>list=productService.getProductDetails();
+						for(Product m:list)
+						{
+							System.out.println("[id=" + m.getId() + ", name=" + m.getName() + ", price=" + m.getPrice()+ "]");
+						}
+					}
+					catch(SQLException e)
+					{
+						System.out.println(e.getMessage());
 					}
 					break;
 				
@@ -53,9 +62,16 @@ public class ProductController {
 					System.out.println("Enter the price to be updated: ");
 					sc.nextLine();
 					Double pprice=sc.nextDouble();
+					try
+					{
+						productService.updateProductInfo(pid, pprice);
+						System.out.println("Product Info Updated!!!");
+					}
+					catch(SQLException e)
+					{
+						System.out.println(e.getMessage());
+					}
 					
-					productService.updateProductInfo(pid, pprice);
-					System.out.println("Product Info Updated!!!");
 					break;
 					
 				

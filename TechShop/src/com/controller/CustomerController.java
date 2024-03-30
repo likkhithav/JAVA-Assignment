@@ -10,7 +10,7 @@ import com.service.CustomerService;
 
 public class CustomerController {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		
 		CustomerService  customerService=new CustomerService();
 		Scanner sc = new Scanner(System.in);
@@ -65,21 +65,27 @@ public class CustomerController {
 					}
 					break;
 				
-				
+					
 				case 3:
 					System.out.println("***Update Customer email***");
 					System.out.println("Enter Id: ");
 					int id = sc.nextInt();
 	
-					System.out.println("Enter Email to be updated: ");
-					sc.nextLine();
-					String cemail = sc.nextLine();
-					
-					customerService.updateCustomerInfo(id, cemail);
-					System.out.println("Customer Info Updated!!!");
+					try 
+					{
+						System.out.println("Enter Email to be updated: ");
+						sc.nextLine();
+						String cemail = sc.nextLine();
+						
+						customerService.updateCustomerInfo(id, cemail);
+						System.out.println("Customer Info Updated!!!");
+					} 
+					catch (SQLException e) 
+					{
+							e.printStackTrace();
+					}
 					break;
-					
-					
+								
 				default:
 					System.out.println("Invalid Input!!!");
 					break;
