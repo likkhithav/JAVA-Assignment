@@ -25,7 +25,7 @@ public class InventoryTest {
 		} 
 		catch (SQLException e)
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("No fetch".toLowerCase(), e.getMessage());
 		}
 	}
 	
@@ -40,7 +40,7 @@ public class InventoryTest {
 		} 
 		catch (SQLException e)
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("No fetch".toLowerCase(), e.getMessage());
 		}
 	}
 	
@@ -57,7 +57,7 @@ public class InventoryTest {
 		} 
 		catch (SQLException e)
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or quantity".toLowerCase(), e.getMessage());
 		}
 		
 		//use case 2
@@ -69,7 +69,7 @@ public class InventoryTest {
 		} 
 		catch (SQLException e) 
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or quantity".toLowerCase(), e.getMessage());
 		}
 	}
 	
@@ -86,7 +86,7 @@ public class InventoryTest {
 		} 
 		catch (SQLException e)
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or quantity".toLowerCase(), e.getMessage());
 		}
 		
 		//use case 2
@@ -98,7 +98,7 @@ public class InventoryTest {
 		} 
 		catch (SQLException e) 
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or quantity".toLowerCase(), e.getMessage());
 		}
 	}
 	
@@ -115,7 +115,7 @@ public class InventoryTest {
 		} 
 		catch (SQLException e)
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or quantity".toLowerCase(), e.getMessage());
 		}
 		
 		//use case 2
@@ -127,7 +127,7 @@ public class InventoryTest {
 		} 
 		catch (SQLException e) 
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or quantity".toLowerCase(), e.getMessage());
 		}
 	}
 	
@@ -144,7 +144,7 @@ public class InventoryTest {
 		}
 		catch(SQLException e)
 		{
-			Assert.assertEquals("Not valid".toLowerCase(), e.getMessage().toLowerCase());
+			Assert.assertEquals("Invalid quantity".toLowerCase(), e.getMessage().toLowerCase());
 		}
 		
 		//use case 2
@@ -156,7 +156,7 @@ public class InventoryTest {
 		}
 		catch(SQLException e)
 		{
-			Assert.assertEquals("Not valid".toLowerCase(), e.getMessage().toLowerCase());
+			Assert.assertEquals("Invalid quantity".toLowerCase(), e.getMessage().toLowerCase());
 		}
 	}
 	
@@ -171,7 +171,7 @@ public class InventoryTest {
 		}
 		catch(SQLException e)
 		{
-			Assert.assertEquals("Not valid".toLowerCase(), e.getMessage().toLowerCase());
+			Assert.assertEquals("No fetch".toLowerCase(), e.getMessage().toLowerCase());
 		}
 	}
 	
@@ -188,7 +188,7 @@ public class InventoryTest {
 		}
 		catch(SQLException e)
 		{
-			Assert.assertEquals("Not valid".toLowerCase(), e.getMessage().toLowerCase());
+			Assert.assertEquals("Invalid quantity".toLowerCase(), e.getMessage().toLowerCase());
 		}
 		
 		//use case 2
@@ -200,7 +200,7 @@ public class InventoryTest {
 		}
 		catch(SQLException e)
 		{
-			Assert.assertEquals("Not valid".toLowerCase(), e.getMessage().toLowerCase());
+			Assert.assertEquals("Invalid quantity".toLowerCase(), e.getMessage().toLowerCase());
 		}
 	}
 	
@@ -215,7 +215,7 @@ public class InventoryTest {
 		}
 		catch(SQLException e)
 		{
-			Assert.assertEquals("Not valid".toLowerCase(), e.getMessage().toLowerCase());
+			Assert.assertEquals("No fetch".toLowerCase(), e.getMessage().toLowerCase());
 		}
 	}
 	
@@ -230,7 +230,7 @@ public class InventoryTest {
 		}
 		catch(SQLException e)
 		{
-			Assert.assertEquals("Not valid".toLowerCase(), e.getMessage().toLowerCase());
+			Assert.assertEquals("No fetch".toLowerCase(), e.getMessage().toLowerCase());
 		}
 	}
 }

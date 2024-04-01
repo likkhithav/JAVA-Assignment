@@ -22,7 +22,7 @@ public class OrderTest {
 		} 
 		catch (SQLException e)
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("No fetch".toLowerCase(), e.getMessage());
 		}
 	}
 	
@@ -37,7 +37,7 @@ public class OrderTest {
 		}
 		catch(SQLException e)
 		{
-			Assert.assertEquals("Not valid".toLowerCase(), e.getMessage().toLowerCase());
+			Assert.assertEquals("No fetch".toLowerCase(), e.getMessage().toLowerCase());
 		}
 	}
 	
@@ -54,7 +54,7 @@ public class OrderTest {
 		} 
 		catch (SQLException e)
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or status".toLowerCase(), e.getMessage());
 		}
 		
 		//use case 2
@@ -66,7 +66,7 @@ public class OrderTest {
 		} 
 		catch (SQLException e) 
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or status".toLowerCase(), e.getMessage());
 		}
 	}
 	

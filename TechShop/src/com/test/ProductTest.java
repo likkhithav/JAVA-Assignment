@@ -24,7 +24,7 @@ public class ProductTest {
 		}
 		catch(SQLException e)
 		{
-			Assert.assertEquals("Not valid".toLowerCase(), e.getMessage().toLowerCase());
+			Assert.assertEquals("No fetch".toLowerCase(), e.getMessage().toLowerCase());
 		}
 	}
 	
@@ -41,7 +41,7 @@ public class ProductTest {
 		} 
 		catch (SQLException e)
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or price".toLowerCase(), e.getMessage());
 		}
 		
 		//use case 2
@@ -53,7 +53,7 @@ public class ProductTest {
 		} 
 		catch (SQLException e) 
 		{
-			Assert.assertEquals("Invalid id".toLowerCase(), e.getMessage());
+			Assert.assertEquals("Invalid id or price".toLowerCase(), e.getMessage());
 		}
 	}
 	
